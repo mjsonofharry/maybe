@@ -1,0 +1,17 @@
+name: Tests
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  tests:
+    name: Run tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.5.0
+      - uses: actions/setup-python@v4.3.0
+      - run: pip install tox
+      - run: tox
